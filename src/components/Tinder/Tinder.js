@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import apiTMDB from '../../utils/apiTMDB'
 
 /*==========  NOTE  =========== 
 12/30/15 > tempData is a placeholder untill I can call on the actual DB
@@ -13,14 +14,16 @@ const tempData= {
   cover: 'http://cdn.wegotthiscovered.com/wp-content/uploads/lego-will-arnett-batman-600.jpg'
 }
 
-const getOneMovie = () => {
-  // we want this function to call the api and retreave a random movie.
+// const getOneMovie = () => {
+//   // we want this function to call the api and retreave a random movie.
 
 
-  // we should expect to get one object, or a short list of movies 
-  // list may or maynot be ordered, if ordered, the list will be deligated to another function
-}
+//   // we should expect to get one object, or a short list of movies 
+//   // list may or maynot be ordered, if ordered, the list will be deligated to another function
+// }
 
+console.log("testing out an api call");
+apiTMDB.getMovies()
 
 
 
