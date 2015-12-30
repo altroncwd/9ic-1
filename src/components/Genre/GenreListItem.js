@@ -12,7 +12,7 @@ export default class GenreListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      poster: 'http://lorempixel.com/340/510/people'
+      poster: 'http://res.cloudinary.com/hhnhfwb0g/image/upload/v1451512279/Chris_mbp08a.png'
     };
   }
 
