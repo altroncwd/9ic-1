@@ -17,6 +17,12 @@ export default class Tinder extends Component {
     return(
       <div className="Tinder" className="col-md-4 col-md-offset-4">
         <h3> {tempData.title} </h3>
+        <div className="PosterView">
+          <button className="btn btn-primary btn-lg col-md-1">Dislike</button>
+          <img src={tempData.cover} className='col-md-10'/>
+          <button className="btn btn-primary btn-lg col-md-1" >Like</button>
+        </div>
+
       </div>
     )
   }
