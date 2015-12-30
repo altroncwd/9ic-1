@@ -42,7 +42,11 @@ const getMovies = () => {
   const url = `${config.TMDB_BASEURL}discover/movie?api_key=${configSec.TMDBKEY}`;
   console.log('getting discovered', url);
   return api.get(url)
-         .then((data)=> console.log(data));
+         .then((data)=> {
+          const random = Math.round(Math.random()*20);
+
+          console.log(random, ' : ',data.results[random])
+         });
 };
 
 
