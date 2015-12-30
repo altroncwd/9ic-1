@@ -37,10 +37,19 @@ const getOnePosterForEachGenre = () => {
          });
 };
 
+// Used in Tiner component
+const getMovies = () => {
+  const url = `${config.TMDB_BASEURL}discover/movie?api_key=${configSec.TMDBKEY}`;
+  console.log('getting discovered', url);
+  return api.get(url)
+         .then((data)=> console.log(data));
+};
+
 
 export default {
   getGenre: getGenre,
   getMoviesByGenreId: getMoviesByGenreId,
   getOneMovieForEachGenre: getOneMovieForEachGenre,
-  getOnePosterForEachGenre: getOnePosterForEachGenre
+  getOnePosterForEachGenre: getOnePosterForEachGenre,
+  getMovies: getMovies
 };
