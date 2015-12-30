@@ -14,34 +14,47 @@ const tempData= {
   cover: 'http://cdn.wegotthiscovered.com/wp-content/uploads/lego-will-arnett-batman-600.jpg'
 }
 
-// const getOneMovie = () => {
-//   // we want this function to call the api and retreave a random movie.
-
-
-//   // we should expect to get one object, or a short list of movies 
-//   // list may or maynot be ordered, if ordered, the list will be deligated to another function
-// }
-
 console.log("testing out an api call");
 apiTMDB.getMovies()
 
 
 
 export default class Tinder extends Component {
+  constructor(props) {
+    super(props); 
+    this.state = {}
+
+  }
+
+  componentDidMount(){
+    this.init();
+  }
+
+  init() {
+    apiTMDB.getMovies()
+      .then((data)=> {
+          const random = Math.round(Math.random()*20);
+          this.setState(data.results[random]);
+          console.log(random, ' : ',data.results[random])
+         });
+  }
+
+
   render(){
     return(
       <div className="Tinder" className="col-md-6 col-md-offset-3 text-center">
-        <h3> {tempData.title} </h3>
+        <h3> {this.state.title} </h3>
         <div className="PosterView">
           <button className="btn btn-primary btn-lg col-md-1">Dislike</button>
-          <img src={tempData.cover} className='col-md-10'/>
+          <img src={this.state.poster_path} className='col-md-10'/>
           <button className="btn btn-primary btn-lg col-md-1" >Like</button>
         </div>
 
         <div className="Description">
           <div className="Description">
-          <p> Genre : {tempData.genre.join(', ')} </p>
-          <p> Descritption : {tempData.summary} </p>
+          <p> Language : {this.state.original_language}</p>
+          <p> Genre : {this.state.genre_ids} </p>
+          <p> Descritption : {this.state.overview} </p>
         </div>
         </div>
       </div>
