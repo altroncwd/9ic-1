@@ -15,7 +15,7 @@ const tempData= {
 export default class Tinder extends Component {
   render(){
     return(
-      <div className="Tinder" className="col-md-4 col-md-offset-4">
+      <div className="Tinder" className="col-md-6 col-md-offset-3 text-center">
         <h3> {tempData.title} </h3>
         <div className="PosterView">
           <button className="btn btn-primary btn-lg col-md-1">Dislike</button>
@@ -23,6 +23,12 @@ export default class Tinder extends Component {
           <button className="btn btn-primary btn-lg col-md-1" >Like</button>
         </div>
 
+        <div className="Description">
+          <div className="Description">
+          <p> Genre : {tempData.genre.join(', ')} </p>
+          <p> Descritption : {tempData.summary} </p>
+        </div>
+        </div>
       </div>
     )
   }
