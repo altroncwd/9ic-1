@@ -10,7 +10,6 @@ export default class Tinder extends Component {
   constructor(props) {
     super(props); 
     this.state = {}
-
   }
 
   componentDidMount(){
@@ -26,28 +25,32 @@ export default class Tinder extends Component {
           //is there a better way then setting state twice to add two things
           this.setState(data.results[random]);
           // console.log("The current state of affairs : ", this.state);
-          // console.log(random, ' : ',data.results[random])
+          console.log(random, ' : ',data.results[random])
          });
   }
 
-
   render(){
     return(
-      <div className="Tinder" className="col-md-6 col-md-offset-3 text-center">
-        <h3> {this.state.title} </h3>
-        <div className="PosterView">
-          <button className="btn btn-primary btn-lg col-md-1">Dislike</button>
-          <img src={this.state.poster} className='col-md-10'/>
-          <button className="btn btn-primary btn-lg col-md-1" >Like</button>
+      <div className="Tinder" >
+
+        <div className="PosterView" className='col-md-4 col-md-offset-1'>
+          <img src={this.state.poster} />
         </div>
 
-        <div className="Description">
-          <div className="Description">
-          <p> Language : {this.state.original_language}</p>
-          <p> Genre : {this.state.genre_ids} </p>
-          <p> Descritption : {this.state.overview} </p>
+        <div className="Description text-left col-md-5 col-md-offset-1">
+          <h1>{this.state.title}</h1>
+          <div  className="col-md-12">
+            <button className="btn btn-primary " >Dislike</button>
+            <button className="btn btn-primary " >Like</button>
+          </div>
+
+          <div>
+            <p> <b>Language : </b>{this.state.original_language}</p>
+            <p> <b>Genre : </b>{this.state.genre_ids} </p>
+            <p> <b>Descritption : </b>{this.state.overview} </p>
+          </div>
         </div>
-        </div>
+
       </div>
     )
   }
