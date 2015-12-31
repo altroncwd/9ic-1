@@ -5,7 +5,10 @@ import common from '../../utils/common'
 /*==========  NOTE  =========== 
 12/30/15 > needs better css styling
 12/30/15 > needs the proper genre's listed
+12/30/15 > the buttons need to call the api again for the next movie;
 */
+
+
 
 export default class Tinder extends Component {
   constructor(props) {
@@ -17,7 +20,7 @@ export default class Tinder extends Component {
     this.init();
   }
 
-  init() {
+  init( next ) {
     apiTMDB.getMovies()
       .then((data)=> {
           const random = _.random(data.results.length-1);
@@ -26,7 +29,6 @@ export default class Tinder extends Component {
           this.setState(data.results[random]);
           // console.log(random, ' : ',data.results[random]);
       });
-  
   }
 
   render(){
