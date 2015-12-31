@@ -5,9 +5,8 @@ import common from '../../utils/common'
 /*==========  NOTE  =========== 
 12/30/15 > needs better css styling
 12/30/15 > needs the proper genre's listed
-12/30/15 > the buttons need to call the api again for the next movie;
+12/30/15 > the like/dislike buttons need to do something
 */
-
 
 
 export default class Tinder extends Component {
@@ -20,7 +19,7 @@ export default class Tinder extends Component {
     this.init();
   }
 
-  init( next ) {
+  init() {
     apiTMDB.getMovies()
       .then((data)=> {
           const random = _.random(data.results.length-1);
@@ -33,7 +32,7 @@ export default class Tinder extends Component {
 
   render(){
     return(
-      <div className="Tinder" >
+      <div className="Tinder">
 
         <div className="PosterView" className='col-md-4 col-md-offset-1'>
           <img src={this.state.poster} />
