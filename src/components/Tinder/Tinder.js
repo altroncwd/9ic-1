@@ -3,7 +3,8 @@ import apiTMDB from '../../utils/apiTMDB'
 import common from '../../utils/common'
 
 /*==========  NOTE  =========== 
-12/30/15 > need to get the genres and posters properly;
+12/30/15 > needs better css styling
+12/30/15 > needs the proper genre's listed
 */
 
 export default class Tinder extends Component {
@@ -22,11 +23,10 @@ export default class Tinder extends Component {
           const random = _.random(data.results.length-1);
           const posterURL = common.getPosterURLByMovie(data.results[random]);
           this.setState({poster: posterURL});     
-          //is there a better way then setting state twice to add two things
           this.setState(data.results[random]);
-          // console.log("The current state of affairs : ", this.state);
-          console.log(random, ' : ',data.results[random])
-         });
+          // console.log(random, ' : ',data.results[random]);
+      });
+  
   }
 
   render(){
