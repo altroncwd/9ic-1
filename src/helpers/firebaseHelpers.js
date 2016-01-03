@@ -17,6 +17,13 @@ export const facebookLoginPopUp = () => {
     }
   })
 }
-export const saveMovieData = (title, popularity, overview, poster_path, id) => {
-  
+
+export const saveMovieData = ({ title, popularity, overview, poster_path, id }, preference) => {
+  firebaseRef.child(`${getAuth.facebook.displayName}/${preference}`).push({
+    title,
+    popularity,
+    overview,
+    poster_path,
+    id
+  })
 }
