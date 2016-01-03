@@ -17,8 +17,7 @@ export default ({overview, poster_path, id }) => {
         </div>
         <div className="row movie-item-video">
             <h3>Trailer</h3>
-            <b>Will add trailer here...</b>
-            <img src="http://lorempixel.com/800/500/animals/"/>
+            <b>COMING SOON</b>
         </div>
         <div className="row movie-item-who-liked">
             <h3>Who liked this movie</h3>
