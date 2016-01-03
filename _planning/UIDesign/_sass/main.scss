@@ -2,96 +2,134 @@
 @import './variables.scss';
 @import './mixins.scss';
 
-
 /*
- * Global styling
- * ========================================================================== */
+* Global styling
+* ========================================================================== */
 
-*{
-     @include box-shadow(none);
+* {
+    @include box-shadow(none);
 }
-html{
+
+html {
     font-size: 14px;
 }
+
 body {
     margin: 0;
     color: $black-base;
     font-size: 1.1rem;
     font-family: $roboto;
 }
+
 a {
     font-family: $roboto-slab;
     color: $link-color;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $link-hover-color;
         text-decoration: none;
     }
 }
-.active{
+
+.active {
     color: $dark-primary-color !important;
 }
 
-#app{
+#app {}
+
+.card-small {}
+
+.card-big {}
+
+.vertical-align {
+    display: flex;
+    flex-direction: row;
 }
 
-.card-small{
-
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card-big{
 
+/* Circle Avatar Styles */
+
+.circle {
+    line-height: 0;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    transition: linear 0.25s;
+    height: 64px;
+    width: 64px;
+    img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        &:hover {
+            transition: ease-out 0.2s;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            -webkit-transition: ease-out 0.2s;
+        }
+        a {
+            color: transparent;
+        }
+    }
 }
+
+
 /*
- * Navbar styling
- * ========================================================================== */
+* Navbar styling
+* ========================================================================== */
 
 nav {
-    &.navbar-default{
+    &.navbar-default {
         background-color: $primary-color;
         border: none;
-        .navbar-brand{
+        .navbar-brand {
             color: $white-base;
         }
-        .slogan{
+        .slogan {
             height: 100%;
             margin-right: 60px;
-            h4{
+            h4 {
                 margin: 16px;
                 line-height: 100%
             }
         }
         .navbar-right {
-            li{
-                a{
+            li {
+                a {
                     color: $black-base;
-                    &:active, &:hover{
+                    &:active,
+                    &:hover {
                         color: $dark-primary-color;
                     }
                 }
             }
         }
-
     }
-    
 }
 
+
 /*
- * Main container styling
- * ========================================================================== */
+* Main container styling
+* ========================================================================== */
 
 main {
     margin: 60px auto;
-    min-height: 800px;
+    min-height: 500px;
     background-color: $white-base;
 }
 
 
+/*
+* Footer styling
+* ========================================================================== */
 
-
- /*
-  * Footer styling
-  * ========================================================================== */
-footer{
+footer {
     height: 80px;
     width: 100%;
     padding: 16px 0;
@@ -101,22 +139,104 @@ footer{
 
 
 /*
- * Genre List styling
- * ========================================================================== */
-#genre-list{
-    .card-small{
-        .thumbnail{
-            .caption {
+* Genre List styling
+* ========================================================================== */
 
-            }
+#genre-list {
+    .card-small {
+        .thumbnail {
+            .caption {}
         }
-
     }
-
 }
 
 
+/*
+* Home  styling
+* ========================================================================== */
+
+#home-container {
+    .home-inner-box {
+        min-height: 400px;
+    }
+    .explore-links {
+        width: 100%;
+    }
+    .movie-search {
+        width: 100%;
+        .btn-success {
+            width: 80px;
+        }
+    }
+}
 
 
+/*
+* MovieList  styling
+* ========================================================================== */
 
 
+/*
+* Other Component styling
+*/
+
+.movie-search {}
+
+.movie-list-item {
+    &.thumbnail {
+        img {
+            width: 100%;
+            margin: 15px 0;
+        }
+        .caption {}
+    }
+}
+
+.movie-item {
+    .thumbnail {
+        border: none;
+    }
+    .movie-item-header {
+        .thumbnail {
+            border: none;
+            img {
+                width: 100%;
+                margin: 15px 0;
+            }
+        }
+    }
+    .movie-item-body {
+        h3 {
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.genre-link-item {
+    font-size: 16px;
+    .movie-item-header {}
+}
+
+.movie-short-intro {
+    p {
+        color: $gray-dark;
+    }
+}
+
+
+/*
+* Override  styling
+*/
+
+.pager li>a,
+.pager li>span {
+    border-radius: 0;
+}
+.navbar-brand>img{
+    width: 150px;
+    margin-top: -18px;
+}
+.thumbnail{
+    
+}
