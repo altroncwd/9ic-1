@@ -11,3 +11,5 @@ export const facebookLoginPopUp = () => {
     }
   })
 }
+
+export const getAuth = firebaseRef.getAuth()
