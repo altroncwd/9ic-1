@@ -11,6 +11,10 @@ Before you run the server, rename the  * ./src/config/configSec.example.js * to 
  - [Live Demo - Now Playing](http://9ic.github.io/#/movies/now_playing)
  - [Live Demo - Search Movies](http://9ic.github.io/#/search/french)
 
+ - [Read Wiki](https://github.com/9ic/9ic/wiki)
+ - [Mindmap for the folder structure](MindrDevMindMap.png)
+ - [Understand the App architecture](MindrDevFlowChart.png)
+
 
 ### Learn
 - [React.js Conf 2015 - Making your app fast with high-performance components](https://youtu.be/KYzlpRvWZ6c)
@@ -26,6 +30,33 @@ git pull
 git merge origin/"branch"
 git submodule update
 ```
+
+### Deploy
+
+This is only the temp solution. It will copy the public folder (except index.html) to  `deploy/` directory and push the updated files to a [separate git repo](https://github.com/9ic/9ic.github.io). If you don't have any new files, the command will fail. 
+
+To run the deploy successfully, first cd to deploy directory, and add `https://github.com/9ic/9ic.github.io.git` as your git remote. 
+```bash 
+➜  deploy git:(master) git remote -v
+origin  https://github.com/9ic/9ic.github.io.git (fetch)
+origin  https://github.com/9ic/9ic.github.io.git (push)
+```
+
+To deploy, at the *root* directory, run 
+```
+npm run git-deploy
+```
+
+### Create OSX App 
+Tutorial: [Creating Desktop Applicatio with node-webkit](https://strongloop.com/strongblog/creating-desktop-applications-with-node-webkit/)
+1. cd to `deploy` 
+2. put the downloaded nwjs files to this directory 
+4. run 
+```
+zip -r Mindr.nw *
+nwjs.app/Contents/MacOS/nwjs
+```
+![Desktop Screenshots](_screenshots/desktop-app.png)
 
 ### Linting
 A custom 'lint' script has been added to the package.json to fix most style errors and then show the remaining unfixed issues.
