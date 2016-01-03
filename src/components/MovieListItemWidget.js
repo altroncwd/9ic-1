@@ -22,7 +22,12 @@ export default ({ title, popularity, overview, poster_path, id }) => {
                <StarRatingWidget level={getLevelByPopularity(popularity)} />
                <GenreLinkWidget/>
                <MovieTextIntroWidget text={ overview } maxLen={ config.OVERVIEW_MAX_LENGTH } maxHeight="40" />
-               <LikeButtonsWidget/>
+               <LikeButtonsWidget
+                title={ title }
+                popularity = { popularity }
+                overview = { overview }
+                poster_path = { poster_path }
+                id = { id } />
            </div>
        </div>
    </div>

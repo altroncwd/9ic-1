@@ -36,7 +36,7 @@ html {
 
 body {
   margin: 0;
-  margin-bottom: 80px;
+  margin-bottom: 112px;
   color: #000;
   font-size: 1.1rem;
   font-family: "Roboto", sans-serif; }
@@ -50,6 +50,10 @@ a {
 
 .active {
   color: #FFA000 !important; }
+
+.flex-row-wrap {
+  display: flex;
+  flex-flow: row wrap; }
 
 .vertical-align {
   display: flex;
