@@ -63,24 +63,26 @@ const getOnePosterForEachGenre = () => {
 }
 
 
-const getRandomMovie = () => {
+const getRandomMovie = (callback) => {
 // this func make a call to get a random genre
   const url = `${config.TMDB_BASEURL}genre/movie/list?api_key=${configSec.TMDBKEY}`
-  return api.get(url)
+  api.get(url)
             .then( (data) => {
-              console.log("Genre Data : ", data, " : ", data.genres)
+              //console.log("Genre Data : ", data, " : ", data.genres)
 // we then make a call to get a list of movies of that genre
-              return getMoviesByGenreId(data.genres[Math.round( Math.random()*19)].id)
+              getMoviesByGenreId(data.genres[Math.round( Math.random()*19)].id)
                 .then( (nextData) => {
-                  console.log("NextDataSet : ", nextData.results)
+                  //console.log("NextDataSet : ", nextData.results)
                   //return nextData.results[Math.round( Math.random()*19)]
-                  return getMovie(nextData.results[Math.round( Math.random()*19)].id)
+                  getMovie(nextData.results[Math.round( Math.random()*19)].id)
                     .then( (movieData) => {
                       console.log(movieData)
+                        callback(movieData)
                     })
                 })
             })
   // the end return should be a movie object, propogated with its information
+  
 }
 
 export default {
