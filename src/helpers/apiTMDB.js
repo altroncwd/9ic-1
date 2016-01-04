@@ -83,10 +83,7 @@ const getRandomMovie = () => {
   // the end return should be a movie object, propogated with its information
 }
 
-
-
 export default {
-<<<<<<< HEAD
   getGenre,
   getMovie,
   getMovieVideosById,
@@ -94,15 +91,6 @@ export default {
   getMoviesByKeywords,
   getMoviesByGenreId,
   getOneMovieForEachGenre,
-  getOnePosterForEachGenre
-=======
-  getGenre: getGenre,
-  getMovie: getMovie,
-  getMoviesByCategory: getMoviesByCategory,
-  getMoviesByKeywords: getMoviesByKeywords,
-  getMoviesByGenreId: getMoviesByGenreId,
-  getOneMovieForEachGenre: getOneMovieForEachGenre,
-  getOnePosterForEachGenre: getOnePosterForEachGenre,
-  getRandomMovie: getRandomMovie
->>>>>>> 75d6c5b3fffaba0c58e830ba5d82532f3726210b
+  getOnePosterForEachGenre,
+  getRandomMovie
 }
