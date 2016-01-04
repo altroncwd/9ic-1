@@ -3,17 +3,23 @@ import apiTMDB from '../helpers/apiTMDB'
 import MovieView from '../components/MovieItemHeaderWidget'
 import MovieDescription from '../components/MovieItemBodyWidget'
 
-const newMovie = () => {
-  apiTMDB.getRandomMovie((item) => (temp = item) )
-}
 
-let temp = {}
-newMovie()
 //NOTE: because of the api calls, it takes a few seconds for them to all run
-setTimeout(() => console.log("what we get back", temp), 2000)
 export default () => {
-// i need to make a blanke state, so the rest wont render
-// then when the function is called, it needs to replace the state and update the view
+  // i need to make a blanke state, so the rest wont render
+  // then when the function is called, it needs to replace the state and update the view
+
+  const newMovie = () => {
+    apiTMDB.getRandomMovie((item) => {
+      temp = item
+      setTimeout(() => {
+        console.log("temp set to : ", temp)
+      }, 500)
+    })
+  }
+
+  let temp = {}
+  newMovie()
 
   return (
     <div className="text-center">
