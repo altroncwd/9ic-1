@@ -1,6 +1,6 @@
 
 import React from 'react'
-export default () => {
+export default ({title}) => {
   return (
     <div className='crumb'>
         <ol className="breadcrumb">
@@ -10,7 +10,7 @@ export default () => {
             <li>
                 <a href="#">Movies</a>
             </li>
-            <li className="active">Lorem ipsum dolor</li>
+            <li className="active">{title}</li>
         </ol>
     </div>
   )
