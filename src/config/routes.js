@@ -8,6 +8,7 @@ import Home from '../layouts/MainPage/HomePage'
 import GenreListPage from '../layouts/Genre/GenreListPage'
 import MovieListPage from '../layouts/Movie/MovieListPage'
 import MovieItemPage from '../layouts/Movie/MovieItemPage'
+import Test from '../layouts/Test'
 
 export default (
   <Router history={browserHistory}>
@@ -18,6 +19,7 @@ export default (
             </Route>
             <Route path="movie/:id" component={MovieItemPage} />
             <Route path="genre/" component={GenreListPage} />
+            <Route path="test/" component={Test} />
             <IndexRoute component={Home}/>
         </Route>
     </Router>

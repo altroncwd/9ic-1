@@ -57,6 +57,28 @@ const getOnePosterForEachGenre = () => {
 }
 
 
+const getRandomMovie = () => {
+// this func make a call to get a random genre
+  const url = `${config.TMDB_BASEURL}genre/movie/list?api_key=${configSec.TMDBKEY}`
+  return api.get(url)
+            .then( (data) => {
+              console.log("Genre Data : ", data, " : ", data.genres)
+// we then make a call to get a list of movies of that genre
+              return getMoviesByGenreId(data.genres[Math.round( Math.random()*19)].id)
+                .then( (nextData) => {
+                  console.log("NextDataSet : ", nextData.results)
+                  //return nextData.results[Math.round( Math.random()*19)]
+                  return getMovie(nextData.results[Math.round( Math.random()*19)].id)
+                    .then( (movieData) => {
+                      console.log(movieData)
+                    })
+                })
+            })
+  // the end return should be a movie object, propogated with its information
+}
+
+
+
 export default {
   getGenre: getGenre,
   getMovie: getMovie,
@@ -64,5 +86,6 @@ export default {
   getMoviesByKeywords: getMoviesByKeywords,
   getMoviesByGenreId: getMoviesByGenreId,
   getOneMovieForEachGenre: getOneMovieForEachGenre,
-  getOnePosterForEachGenre: getOnePosterForEachGenre
+  getOnePosterForEachGenre: getOnePosterForEachGenre,
+  getRandomMovie: getRandomMovie
 }
